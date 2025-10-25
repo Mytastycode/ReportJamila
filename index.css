@@ -199,9 +199,7 @@
                 font-weight: bold;
                 margin-bottom: 10px;
                 color: var(--light);
-                /* background: var(--gradient-primary); */
                 -webkit-background-clip: text;
-                /* -webkit-text-fill-color: transparent; */
             }
             
             .score-excellent { background: var(--gradient-success) !important; }
@@ -1434,3 +1432,4 @@
                     flex-wrap: nowrap;
                 }
             }
+
