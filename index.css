@@ -1272,7 +1272,7 @@
 
             /* All media Query */
 
-            @media (max-width:480px){ 
+           @media (max-width:480px){ 
 
                 .section-title {
                     font-size: 1.2em;
@@ -1286,6 +1286,17 @@
                 .wishTitle h2{
                     font-size:15px;
                 } 
+
+                .btn-swiper {
+                    width: 42px;
+                    height: 42px;
+                    margin-bottom: -18px;
+                }
+
+                .thumbs-container{
+                    top: 30px;
+                    min-height: 65px;
+                }
             }
 
             @media (max-width: 768px) {
@@ -1339,14 +1350,13 @@
                 }
             }
 
-            @media (max-width: 997px){
+
+            @media (max-width: 1099px){
 
                 .status-badge {
                     padding: 8px 10px;
                 }
-            }
 
-            @media (max-width: 1099px) {
                 /* إخفاء التابس وإظهار الأكورديون */
                 .popup {
                     display: none;
