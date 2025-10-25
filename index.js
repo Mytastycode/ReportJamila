@@ -1136,8 +1136,6 @@ document.addEventListener('click', function(event) {
                         initCompactCard();
                         initMainGallery();
                         initLightbox(".wishImage img");
-                        // initializeCurMenu();
-                        // initLanguageSelector();
 
                         console.log('✅ تم تهيئة جميع المكونات بنجاح');
                         
@@ -1172,18 +1170,10 @@ document.addEventListener('click', function(event) {
             reinitLightboxAfterLangToggle();
         });
 
-        // // أيضًا استدعاء الدالة إذا تم تحميل الصفحة بالفعل
-        // if (document.readyState === 'loading') {
-        //     document.addEventListener('DOMContentLoaded', initializeLangMenu, initializeCurMenu );
-        // } else {
-        //     initializeLangMenu();
-        //     initializeCurMenu();
-        // }
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////
             /////////////////////////////////////////////////////////////////////////////////////////////////////
 
-            // ✅ منع صعود الصفحة لأي رابط فارغ أو "#" في أي وقت
             document.addEventListener('click', function (e) {
             const link = e.target.closest('a[href="#"], a[href=""], a:not([href])');
             if (link) {
@@ -1255,88 +1245,75 @@ const ComponentManager = {
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// // ===== كود التأمين الأساسي المُحدّث =====
-// document.addEventListener('DOMContentLoaded', function() {
-//     'use strict';
+document.addEventListener('DOMContentLoaded', function() {
+    'use strict';
     
-//     // 1. منع النقر الأيمن
-//     document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('contextmenu', e => e.preventDefault());
     
-//     // 2. منع F12 و Ctrl+Shift+I و Ctrl+Shift+J
-//     document.addEventListener('keydown', e => {
-//         // F12
-//         if (e.key === 'F12' || e.keyCode === 123) {
-//             e.preventDefault();
-//             showSecurityAlert('❌ F12 غير مسموح');
-//             return false;
-//         }
+    document.addEventListener('keydown', e => {
+        if (e.key === 'F12' || e.keyCode === 123) {
+            e.preventDefault();
+            showSecurityAlert('❌ F12 غير مسموح');
+            return false;
+        }
         
-//         // Ctrl+Shift+I (أدوات المطورين)
-//         if (e.ctrlKey && e.shiftKey && e.key === 'I') {
-//             e.preventDefault();
-//             showSecurityAlert('❌ Ctrl+Shift+I غير مسموح');
-//             return false;
-//         }
+        if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+            e.preventDefault();
+            showSecurityAlert('❌ Ctrl+Shift+I غير مسموح');
+            return false;
+        }
         
-//         // Ctrl+Shift+J (وحدة التحكم - Console)
-//         if (e.ctrlKey && e.shiftKey && e.key === 'J') {
-//             e.preventDefault();
-//             showSecurityAlert('❌ Ctrl+Shift+J غير مسموح');
-//             return false;
-//         }
+        if (e.ctrlKey && e.shiftKey && e.key === 'J') {
+            e.preventDefault();
+            showSecurityAlert('❌ Ctrl+Shift+J غير مسموح');
+            return false;
+        }
         
-//         // Ctrl+Shift+C (فحص العناصر)
-//         if (e.ctrlKey && e.shiftKey && e.key === 'C') {
-//             e.preventDefault();
-//             showSecurityAlert('❌ Ctrl+Shift+C غير مسموح');
-//             return false;
-//         }
+        if (e.ctrlKey && e.shiftKey && e.key === 'C') {
+            e.preventDefault();
+            showSecurityAlert('❌ Ctrl+Shift+C غير مسموح');
+            return false;
+        }
         
-//         // Ctrl+U (عرض المصدر)
-//         if (e.ctrlKey && e.key === 'u') {
-//             e.preventDefault();
-//             showSecurityAlert('❌ عرض المصدر غير مسموح');
-//             return false;
-//         }
-//     });
+        if (e.ctrlKey && e.key === 'u') {
+            e.preventDefault();
+            showSecurityAlert('❌ عرض المصدر غير مسموح');
+            return false;
+        }
+    });
     
-//     // 3. منع النسخ
-//     document.addEventListener('copy', e => e.preventDefault());
+    document.addEventListener('copy', e => e.preventDefault());
     
-//     // 4. رسالة تحذير في الكونسول
-//     console.log('%c⛔ توقف!', 'color: red; font-size: 30px; font-weight: bold;');
-//     console.log('%cهذه المنطقة مخصصة للمطورين فقط.', 'color: orange; font-size: 16px;');
-// });
+    console.log('%c⛔ توقف!', 'color: red; font-size: 30px; font-weight: bold;');
+    console.log('%cهذه المنطقة مخصصة للمطورين فقط.', 'color: orange; font-size: 16px;');
+});
 
-// // 5. منع فتح الصفحة في إطار
-// if (window !== window.top) {
-//     window.top.location = window.location;
-// }
+if (window !== window.top) {
+    window.top.location = window.location;
+}
 
-// // دالة عرض التنبيهات (مبسطة)
-// function showSecurityAlert(message) {
-//     // إنشاء تنبيه بسيط
-//     const alertDiv = document.createElement('div');
-//     alertDiv.style.cssText = `
-//         position: fixed;
-//         top: 20px;
-//         right: 20px;
-//         background: #ff4444;
-//         color: white;
-//         padding: 10px 15px;
-//         border-radius: 5px;
-//         z-index: 10000;
-//         font-family: Arial, sans-serif;
-//         font-size: 14px;
-//     `;
-//     alertDiv.textContent = message;
+function showSecurityAlert(message) {
+    const alertDiv = document.createElement('div');
+    alertDiv.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #ff4444;
+        color: white;
+        padding: 10px 15px;
+        border-radius: 5px;
+        z-index: 10000;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+    `;
+    alertDiv.textContent = message;
     
-//     document.body.appendChild(alertDiv);
+    document.body.appendChild(alertDiv);
     
-//     // إزالة التنبيه بعد ثانيتين
-//     setTimeout(() => {
-//         if (alertDiv.parentNode) {
-//             alertDiv.parentNode.removeChild(alertDiv);
-//         }
-//     }, 2000);
-// }
+    setTimeout(() => {
+        if (alertDiv.parentNode) {
+            alertDiv.parentNode.removeChild(alertDiv);
+        }
+    }, 2000);
+}
+
