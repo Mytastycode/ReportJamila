@@ -49,12 +49,9 @@
             // تحديث اتجاه السهم
             updateArrowDirection();
 
-            // ✅ استدعاء الدالة (لكل الصور داخل الأقسام)
             initLightbox(".wishImage img");
 
-            // initTabsAccordion(); // ✅ استدعاء الدالة
 
-            // إعادة تهيئة المكونات بعد تغيير اللغة
             setTimeout(() => {
                 const activeAccordion = document.querySelector('.accordion-item.active');
                 if (activeAccordion) {
@@ -91,7 +88,6 @@
                     arrow.style.transform = 'rotate(0deg)';
                 }
 
-                // ستايل إضافي
                 arrow.style.display = 'inline-block';
                 arrow.style.transition = 'transform 0.5s ease';
             });
@@ -1340,5 +1336,6 @@ function showSecurityAlert(message) {
         }
     }, 2000);
 }
+
 
 
